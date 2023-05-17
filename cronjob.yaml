@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: load-test
+spec:
+  template:
+    spec:
+      containers:
+      - name: hey
+        image: subfuzion/hey
+        args:
+        - "-n"
+        - "50000"
+        - "-c"
+        - "100"
+        - "http://httpbin.default.svc.cluster.local"
+      restartPolicy: Never

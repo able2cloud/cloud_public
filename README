@@ -1,0 +1,29 @@
+1. Criação de um Cluster AKS:
+
+a. Faça login no Portal Azure.
+
+b. No menu esquerdo, clique em "Criar um recurso".
+
+c. No campo "Pesquisar no Marketplace", digite "Kubernetes" e selecione "Azure Kubernetes Service".
+
+d. Preencha os detalhes necessários, como nome do cluster, região, versão do Kubernetes e tamanho do nó. Lembre-se de escolher a menor quantidade de nós para economizar custos.
+
+e. Clique em "Revisar + criar" e, em seguida, em "Criar".
+
+#configurar kubectl
+<pre>az aks get-credentials --resource-group myResourceGroup --name myAKSCluster</pre>
+
+#criar appexemplo: 
+kubectl create -f appexample.yaml
+
+. Monitoramento da Aplicação:
+
+a. No portal Azure, vá para a página do seu cluster AKS e clique em "Insights" no menu esquerdo para ver as métricas de desempenho.
+
+b. Use o Azure Log Analytics para analisar os logs da sua aplicação. Você pode configurá-lo para coletar logs diretamente do seu cluster AKS.
+------------
+create hpa 
+create cronjob
+Demonstracao
+
+
