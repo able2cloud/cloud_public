@@ -2,7 +2,9 @@
 
 Guia prático - Criação e gerenciamento de um Cluster AKS no Azure
 Passo 1: Acessar o Azure
-Após logar na Azure com as credenciais da FIAP, clique em 'Student'. Verifique se, na parte superior à direita, seu login da FIAP está visível.
+Após logar na Azure com as credenciais da FIAP, clique em 'Education'. Verifique se, na parte superior à direita, seu login da FIAP está visível.
+
+Em Education Overview clique em explore All, e nesse menu procure por Azure Kubernetes Service (AKS) 
 
 Passo 2: Criar o Cluster AKS
 Em 'Search', pesquise por "AKS". No campo "Pesquisar no Marketplace", digite "Kubernetes" e selecione "Azure Kubernetes Service".
