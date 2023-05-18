@@ -1,29 +1,76 @@
-1. Criação de um Cluster AKS:
 
-a. Faça login no Portal Azure.
 
-b. No menu esquerdo, clique em "Criar um recurso".
+Guia prático - Criação e gerenciamento de um Cluster AKS no Azure
+Passo 1: Acessar o Azure
+Após logar na Azure com as credenciais da FIAP, clique em 'Student'. Verifique se, na parte superior à direita, seu login da FIAP está visível.
 
-c. No campo "Pesquisar no Marketplace", digite "Kubernetes" e selecione "Azure Kubernetes Service".
+Passo 2: Criar o Cluster AKS
+Em 'Search', pesquise por "AKS". No campo "Pesquisar no Marketplace", digite "Kubernetes" e selecione "Azure Kubernetes Service".
 
-d. Preencha os detalhes necessários, como nome do cluster, região, versão do Kubernetes e tamanho do nó. Lembre-se de escolher a menor quantidade de nós para economizar custos.
+Passo 3: Preencher o Painel de Configuração do Cluster AKS
+Preencha os campos conforme abaixo:
 
-e. Clique em "Revisar + criar" e, em seguida, em "Criar".
+Subscription: 'Azure for Students'
+Resource group: Clique em 'Create new' e nomeie como 'aula3rs'
+Cluster name: aula3cluster
+Cluster preset configuration: 'Dev/Test'
+Region: 'US East' -> 'US - Zone 1'
+AKS pricing tier: 'Free'
+Kubernetes Version: '1.26'
+Automatic upgrade: Marque 'Enable with patch'
+Node size: Selecione 'D2s_V3'
+Node count: Configure o auto-scaling de 1 a 3 nós
+Encrypt type: 'Default'
+Authentication and authorization: 'Local RBAC'
+Network configuration: 'Kubenet'
+Network policy: 'None'
+Após preencher os campos, clique em "Revisar + criar" e, em seguida, em "Criar". Após a criação do cluster, faça o download do JSON para verificar as configurações.
 
-#configurar kubectl
-<pre>az aks get-credentials --resource-group myResourceGroup --name myAKSCluster</pre>
+Passo 4: Instalar o Azure CLI (az) e o kubectl
+Ubuntu (Linux):
+Abra o terminal e execute os seguintes comandos:
 
-#criar appexemplo: 
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+sudo apt-get update
+sudo apt-get install -y kubectl
+
+
+Windows:
+Instalar o Azure CLI: Baixe o instalador do Azure CLI a partir da página oficial de download: https://aka.ms/installazurecliwindows. Após o download, execute o instalador e siga as instruções na tela para completar a instalação.
+
+Instalar o kubectl: Abra o PowerShell como administrador e execute o seguinte comando:
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe
+Em seguida, mova o arquivo kubectl.exe para um diretório em seu PATH.
+
+Passo 5: Configurar o az login
+Execute o comando az login. O Azure CLI tentará abrir uma nova janela do navegador para que você possa fazer login. Siga as instruções na página de login do Azure.
+
+Caso o Azure CLI não consiga abrir uma janela do navegador, siga estas etapas:
+
+Copie o código fornecido pelo Azure CLI.
+Vá para o URL fornecido pelo Azure CLI em um navegador da web.
+Insira o código que você copiou e clique
+Insira suas credenciais do Azure para fazer login.
+Com isso, você estará autenticado na sua conta Azure e pronto para usar o Azure CLI para gerenciar seus recursos do Azure.
+
+Passo 6: Configurar o kubectl
+Para configurar o kubectl para acessar seu cluster AKS, execute o seguinte comando:
+
+az aks get-credentials --resource-group aula3rs --name aula3cluster
+
+
+Passo 7: Executando comandos no Kubernetes
 kubectl create -f appexample.yaml
 
-. Monitoramento da Aplicação:
+Passo 8: Monitoramento da Aplicação
+No portal Azure, vá para a página do seu cluster AKS e clique em "Insights" no menu esquerdo para ver as métricas de desempenho.
 
-a. No portal Azure, vá para a página do seu cluster AKS e clique em "Insights" no menu esquerdo para ver as métricas de desempenho.
+Você também pode usar o Azure Log Analytics para analisar os logs da sua aplicação. Ele pode ser configurado para coletar logs diretamente do seu cluster AKS.
 
-b. Use o Azure Log Analytics para analisar os logs da sua aplicação. Você pode configurá-lo para coletar logs diretamente do seu cluster AKS.
-------------
-create hpa 
-create cronjob
-Demonstracao
+Passo 9: Criação de um HPA (Horizontal Pod Autoscaler) e um CronJob
+Aqui você pode criar um HPA ou um CronJob no seu cluster, de acordo com a necessidade da sua aplicação.
 
-
+az aks delete --name aula3cluster --resource-group aula3rs --yes
