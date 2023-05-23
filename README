@@ -66,6 +66,10 @@ Para configurar o kubectl para acessar seu cluster AKS, execute o seguinte coman
 
 az aks get-credentials --resource-group aula3rs --name aula3cluster
 
+baixando os arquivos:
+wget https://raw.githubusercontent.com/able2cloud/cloud_public/main/cronjob.yaml
+wget https://raw.githubusercontent.com/able2cloud/cloud_public/main/appexample.yaml
+wget https://raw.githubusercontent.com/able2cloud/cloud_public/main/hpa.yaml
 
 Passo 7: Executando comandos no Kubernetes
 kubectl create -f appexample.yaml
