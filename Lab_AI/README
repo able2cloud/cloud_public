@@ -6,7 +6,9 @@
  #crie um diretorio entre nele
  mkdir lab
  cd lab
-
+#baixe os arquivos:
+wget https://raw.githubusercontent.com/able2cloud/cloud_public/main/Lab_AI/ocr-example.py
+wget https://github.com/able2cloud/cloud_public/blob/main/Lab_AI/AI_image_lab.jpg
 #Execute o seguinte comando para criar um novo grupo de recursos na região "us-east":
 
 
