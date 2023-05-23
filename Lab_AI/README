@@ -35,11 +35,9 @@ az cognitiveservices account keys list --name textai --resource-group labai
 
 #Anote a "Chave 1" e o "Ponto de extremidade" retornados pelo comando, pois vamos usá-los mais tarde no código Python.
 
-#Agora, é necessário preparar uma imagem de exemplo contendo texto para realizar o reconhecimento de texto (OCR). Salve #uma imagem contendo texto em seu computador. Por exemplo, você pode salvar uma imagem chamada "texto.png" na sua área de #trabalho.
 
-#Abra seu editor de código preferido e crie um novo arquivo chamado "ocr_example.py".
+#Abra seu editor de código e edit o arquivo: ocr_example.py".
 
-#baixe o arquivo python
 
 
 #instale o pip
@@ -51,6 +49,6 @@ python ocr_example.py
 
 O código carregará a imagem "texto.png", realizará o reconhecimento de texto (OCR) usando a instância do Azure Cognitive Services "textai" e exibirá o texto extraído no terminal.
 
-Certifique-se de que a imagem "texto.png" esteja no mesmo diretório em que você está executando o código. Se você salvou a imagem em um diretório diferente, atualize o caminho da imagem na variável image_path.
+Certifique-se de que a imagem  esteja no mesmo diretório em que você está executando o código. Se você salvou a imagem em um diretório diferente, atualize o caminho da imagem na variável image_path.
 
 Essas são as instruções detalhadas para criar o grupo de recursos "labai" na região "us-east" e usar a instância "textai" do Azure Cognitive Services para realizar o reconhecimento de texto em uma imagem. Certifique-se de substituir os valores corretos ao seguir os passos.
