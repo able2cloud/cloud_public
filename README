@@ -28,38 +28,13 @@ Network configuration: 'Kubenet'
 Network policy: 'None'
 Após preencher os campos, clique em "Revisar + criar" e, em seguida, em "Criar". Após a criação do cluster, faça o download do JSON para verificar as configurações.
 
-No Windows: siga essas instrucoes: https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
-Passo 4: Instalar o Azure CLI (az) e o kubectl
-Ubuntu (Linux):
-Abra o terminal e execute os seguintes comandos:
-
-curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-sudo apt-get update && sudo apt-get install -y apt-transport-https gnupg2 curl
-curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-sudo apt-get update
-sudo apt-get install -y kubectl
 
 
-Windows:
-Instalar o Azure CLI: Baixe o instalador do Azure CLI a partir da página oficial de download: https://aka.ms/installazurecliwindows. Após o download, execute o instalador e siga as instruções na tela para completar a instalação.
 
-Instalar o kubectl: Abra o PowerShell como administrador e execute o seguinte comando:
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/windows/amd64/kubectl.exe
-Em seguida, mova o arquivo kubectl.exe para um diretório em seu PATH.
+Abra o cloudshell no portal azure
 
-# https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/
 
-Passo 5: Configurar o az login
-Execute o comando az login. O Azure CLI tentará abrir uma nova janela do navegador para que você possa fazer login. Siga as instruções na página de login do Azure.
 
-Caso o Azure CLI não consiga abrir uma janela do navegador, siga estas etapas:
-
-Copie o código fornecido pelo Azure CLI.
-Vá para o URL fornecido pelo Azure CLI em um navegador da web.
-Insira o código que você copiou e clique
-Insira suas credenciais do Azure para fazer login.
-Com isso, você estará autenticado na sua conta Azure e pronto para usar o Azure CLI para gerenciar seus recursos do Azure.
 
 Passo 6: Configurar o kubectl
 Para configurar o kubectl para acessar seu cluster AKS, execute o seguinte comando:
