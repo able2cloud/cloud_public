@@ -47,7 +47,7 @@ pip install azure-cognitiveservices-vision-computervision
 #Após a instalação da biblioteca, execute o código Python:
 python ocr_example.py
 
-O código carregará a imagem "texto.png", realizará o reconhecimento de texto (OCR) usando a instância do Azure Cognitive Services "textai" e exibirá o texto extraído no terminal.
+O código carregará a imagem "AI_image_lab.jpg", realizará o reconhecimento de texto (OCR) usando a instância do Azure Cognitive Services "textai" e exibirá o texto extraído no terminal.
 
 Certifique-se de que a imagem  esteja no mesmo diretório em que você está executando o código. Se você salvou a imagem em um diretório diferente, atualize o caminho da imagem na variável image_path.
 
