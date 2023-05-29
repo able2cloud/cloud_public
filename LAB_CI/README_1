@@ -1,0 +1,34 @@
+
+Claro! Vamos começar do princípio:
+
+Pré-requisito: Para esse guia, você precisará de uma conta na Azure e no Azure DevOps.
+
+1. Criando um novo repositório no Azure Repos
+
+Entre na sua conta do Azure DevOps.
+Na página inicial, você verá a opção de criar um novo projeto. Clique em "New Project".
+Dê um nome ao seu projeto e clique em "Create".
+2. Importando ou carregando código para o Azure Repos
+
+No novo projeto criado, vá para a seção "Repos" no menu lateral esquerdo.
+Clique em "Files", e então você verá um botão "Import" no topo da página.
+Se você já tem um repositório Git existente, você pode clicar em "Import" e fornecer a URL do repositório Git para importar todo o código.
+Se você está começando um novo projeto, você pode criar um novo arquivo diretamente na interface do Azure DevOps e começar a escrever seu código.
+3. Criando um arquivo de build (por exemplo, usando Node.js)
+
+Se você está usando Node.js, geralmente, um arquivo package.json é usado para gerenciar as dependências e scripts de build do seu projeto.
+Aqui está um exemplo simples de um package.json para um aplicativo Node.js:
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+
