@@ -1,5 +1,11 @@
 Claro, vamos começar a criar um namespace do Event Hubs, um Event Hub dentro dele, enviar uma mensagem e, em seguida, consumi-la. Aqui estão os passos que você pode seguir usando o Azure CLI no Cloud Shell:
 
+
+git clone https://github.com/able2cloud/cloud_public.git
+
+cd cloud_public/event_hub
+
+
 Login no Azure CLI: Se você ainda não fez login, faça-o com o comando:
 
 az login
@@ -19,40 +25,22 @@ Envie uma mensagem para o Event Hub: Primeiro, precisamos instalar a biblioteca 
 pip install azure-eventhub
 Em seguida, você pode usar o seguinte script Python para enviar uma mensagem para o Event Hub:
 
-python
-Copy code
-from azure.eventhub import EventHubProducerClient, EventData
+pegue a string de conexão:
+az eventhubs namespace authorization-rule keys list --resource-group <your-resource-group> --namespace-name <your-namespace-name> --name RootManageSharedAccessKey --query primaryConnectionString --output tsv
+
+
 
 # Obtenha a string de conexão do namespace. Substitua com suas próprias informações.
 connection_str = 'Endpoint=sb://aula5namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<YourPrimaryKey>;EntityPath=aula5eventhub'
 
-producer = EventHubProducerClient.from_connection_string(conn_str=connection_str)
+python sender.py
 
-# Envie uma única mensagem
-event_data = EventData("Hello, Azure Event Hubs!")
-with producer:
-    producer.send(event_data)
-Verifique a mensagem no painel do Azure: Você pode visualizar a mensagem no painel do Azure. Navegue até o seu Event Hub (aula5eventhub), e você deve ser capaz de ver os detalhes da mensagem.
 
 Consuma a mensagem do Event Hub: Você pode usar o seguinte script Python para consumir a mensagem do Event Hub:
 
-python
-Copy code
-from azure.eventhub import EventHubConsumerClient
+python consumer.py
 
 # Substitua com suas próprias informações
 connection_str = 'Endpoint=sb://aula5namespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<YourPrimaryKey>;EntityPath=aula5eventhub'
 consumer_group = '$Default'
 
-client = EventHubConsumerClient.from_connection_string(connection_str, consumer_group)
-
-def on_event(partition_context, event):
-    # Imprima a mensagem recebida
-    print("Received event from partition: {}.".format(partition_context.partition_id))
-    print("Message: ", event.body_as_str())
-
-    # Marque a mensagem como consumida
-    partition_context.update_checkpoint(event)
-
-with client:
-    client.receive(on_event=on_event)
