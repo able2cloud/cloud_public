@@ -4,6 +4,8 @@ Faça login na sua conta do Azure DevOps.
 
 No canto superior direito, clique em "Novo projeto".
 
+Clique em advanced e permita a configuração de allow public project
+
 Dê um nome ao projeto e uma descrição (opcional). Deixe a visibilidade como "Público" para que todos possam acessá-lo. Clique em "Criar".
 
 Etapa 2: Crie um repositório Git
