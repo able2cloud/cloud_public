@@ -1,7 +1,7 @@
 from azure.eventhub import EventHubProducerClient, EventData
 
-# Obtenha a string de conexão do namespace. Substitua com suas próprias informações.
-connection_str = 'Endpoint=sb://testcasanamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<YourPrimaryKey>;EntityPath=testcasaeventhub'
+# Use a string de conexão fornecida
+connection_str = 'Endpoint=sb://testcasanamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=jbtvWnANxVyvQF4ZD3eWF1+k9ZXEJ4rlo+AEhJqgLP0='
 
 producer = EventHubProducerClient.from_connection_string(conn_str=connection_str)
 

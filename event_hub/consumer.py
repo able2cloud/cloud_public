@@ -1,7 +1,8 @@
 from azure.eventhub import EventHubConsumerClient
 
 # Substitua com suas próprias informações
-connection_str = 'Endpoint=sb://testcasanamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=<YourPrimaryKey>;EntityPath=testcasaeventhub'
+# Use a string de conexão fornecida
+connection_str = 'Endpoint=sb://testcasanamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=jbtvWnANxVyvQF4ZD3eWF1+k9ZXEJ4rlo+AEhJqgLP0='
 consumer_group = '$Default'
 
 client = EventHubConsumerClient.from_connection_string(connection_str, consumer_group)
