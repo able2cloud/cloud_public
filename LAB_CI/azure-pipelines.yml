@@ -1,0 +1,16 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a script'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure for Students'
+    appName: '<hello world>'
+    package: $(System.DefaultWorkingDirectory)
+

@@ -1,18 +1,37 @@
-no Azure DevOps e fazer deploy de uma aplicação web básica no Azure App Service.
 
 Pré-requisitos: Conta no Azure, Azure DevOps, e uma aplicação web simples em um repositório Git (por exemplo, um aplicativo Hello World em Node.js).
 
-1. Criar um novo projeto no Azure DevOps
+Claro! Vamos começar do princípio:
 
-Faça login na sua conta do Azure DevOps.
-Na página inicial, clique em "New project".
+Pré-requisito: Para esse guia, você precisará de uma conta na Azure e no Azure DevOps.
+
+1. Criando um novo repositório no Azure Repos
+
+Entre na sua conta do Azure DevOps.
+Na página inicial, você verá a opção de criar um novo projeto. Clique em "New Project".
 Dê um nome ao seu projeto e clique em "Create".
-2. Importar o código do repositório Git
+2. Importando ou carregando código para o Azure Repos
 
-No novo projeto, vá para a seção "Repos".
-Clique em "Import" e insira a URL do seu repositório Git.
-Clique em "Import" novamente para importar o código.
-3. Criar um novo pipeline
+No novo projeto criado, vá para a seção "Repos" no menu lateral esquerdo.
+Se você está começando um novo projeto, você pode criar um novo arquivo diretamente na interface do Azure DevOps e começar a escrever seu código.
+3. Criando um arquivo de build (por exemplo, usando Node.js)
+
+Se você está usando Node.js, geralmente, um arquivo package.json é usado para gerenciar as dependências e scripts de build do seu projeto.
+Aqui está um exemplo simples de um package.json para um aplicativo Node.js:
+{
+  "name": "my-app",
+  "version": "1.0.0",
+  "description": "A simple Node.js app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
+
 
 Vá para a seção "Pipelines" do seu projeto.
 Clique em "Create Pipeline".
