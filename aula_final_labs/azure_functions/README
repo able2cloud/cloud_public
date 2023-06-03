@@ -1,0 +1,54 @@
+Azure Functions - Laboratório
+Sobre Azure Functions
+Azure Functions é um serviço de computação "serverless" fornecido pela Microsoft na nuvem Azure. Ele permite que você execute pedaços de código ou "funções" em resposta a uma variedade de eventos, sem a necessidade de provisionar ou gerenciar servidores explicitamente. Você só precisa escrever o código de sua função; o Azure cuida da infraestrutura para executá-lo.
+
+
+
+
+Pré-requisitos
+Uma conta Azure for Students. Isso fornece $100 em crédito Azure.
+Acesso ao Azure Cloud Shell, uma experiência de shell interativa baseada em navegador que a Microsoft oferece.
+Laboratório
+1. Autenticação e Configuração do Azure Cloud Shell
+Primeiramente, faça login no Azure Portal - portal.azure.com
+
+Clique no ícone >_ no canto superior direito do portal Azure para abrir o Cloud Shell.
+
+Selecione a opção Bash ou PowerShell (Neste guia, estaremos usando Bash).
+
+No início do uso do Cloud Shell, será necessário autenticar a sessão. Para isso, digite:
+
+az login
+
+Siga as instruções na tela para autenticação.
+
+
+2. Criação do Grupo de Recursos
+Execute o seguinte comando para criar um grupo de recursos na localização eastus.
+
+az group create --name aulafinalresourcegroup --location eastus
+
+
+3. Criação do Storage Account
+Vamos criar um storage account, que é necessário para o Azure Functions.
+
+
+az storage account create --name aulafinalstorageaccount --location eastus --resource-group aulafinalresourcegroup --sku Standard_LRS
+
+4. Criação da Função
+Agora vamos criar a função.
+
+az functionapp create --resource-group aulafinalresourcegroup --consumption-plan-location eastus --runtime python --functions-version 3 --name aulafinalfunction --storage-account aulafinalstorageaccount
+
+5. Criação do Código da Função
+Vamos criar uma função simples que retorna "Olá, Azure Functions!" quando é chamada.
+
+Primeiro, crie um novo diretório para a função.
+mkdir aulafinalfunction && cd aulafinalfunction
+
+
+wget url:git/__init__.py
+
+cd ..
+func azure functionapp publish aulafinalfunction
+
