@@ -26,29 +26,29 @@ Siga as instruções na tela para autenticação.
 2. Criação do Grupo de Recursos
 Execute o seguinte comando para criar um grupo de recursos na localização eastus.
 
-az group create --name aulafinalresourcegroup --location eastus
+az group create --name aulafinal2resourcegroup --location eastus
 
 
 3. Criação do Storage Account
 Vamos criar um storage account, que é necessário para o Azure Functions.
 
 
-az storage account create --name aulafinalstorageaccount --location eastus --resource-group aulafinalresourcegroup --sku Standard_LRS
+az storage account create --name aulafinal2storageaccount --location eastus --resource-group aulafinal2resourcegroup --sku Standard_LRS
 
 4. Criação da Função
 Agora vamos criar a função.
 
-az functionapp create --resource-group aulafinalresourcegroup --consumption-plan-location eastus --runtime python --functions-version 3 --name aulafinalfunction --storage-account aulafinalstorageaccount
+az functionapp create --resource-group aulafinal2resourcegroup --consumption-plan-location eastus --runtime python --functions-version 3 --name aulafinal2function --storage-account aulafinal2storageaccount
 
 5. Criação do Código da Função
 Vamos criar uma função simples que retorna "Olá, Azure Functions!" quando é chamada.
 
 Primeiro, crie um novo diretório para a função.
-mkdir aulafinalfunction && cd aulafinalfunction
+mkdir aulafinal2function && cd aulafinal2function
 
 
-wget url:git/__init__.py
+wget https://raw.githubusercontent.com/able2cloud/cloud_public/main/aula_final_labs/azure_functions/__init__.py 
 
 cd ..
-func azure functionapp publish aulafinalfunction
+func azure functionapp publish aulafinal2function
 
