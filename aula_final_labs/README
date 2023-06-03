@@ -28,7 +28,7 @@ az group create --name aulafinalresourcegroup --location eastus
 3. Criação da Instância SQL
 Agora, vamos criar uma instância de um servidor SQL.
 
-az sql server create --name aulafinalserver --resource-group aulafinalresourcegroup --location eastus --admin-user aulafinaluser --admin-password aulafinalpassword
+az sql server create --name aulafinalserver --resource-group aulafinalresourcegroup --location eastus --admin-user aulafinaluser --admin-password Aulafinalpassword1
 4. Criação do Banco de Dados
 Vamos criar um banco de dados chamado aulafinaldatabase.
 
@@ -43,7 +43,7 @@ az sql server firewall-rule create --resource-group aulafinalresourcegroup --ser
 pip install mssql-cli
 
 7 . logue no banco:
-mssql-cli -S aulafinalserver.database.windows.net -d aulafinaldatabase -U aulafinaluser -P aulafinalpassword
+mssql-cli -S aulafinalserver.database.windows.net -d aulafinaldatabase -U aulafinaluser -P Aulafinalpassword1
 
 8: 
 Agora estamos conectados ao banco de dados. Vamos criar uma tabela simples. Por exemplo, uma tabela chamada "Estudantes" com três campos: Id, Nome, e Curso.
