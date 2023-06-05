@@ -1,0 +1,100 @@
+#Azure SQL Database - Laboratório
+#Sobre o Azure SQL Database
+#Azure SQL Database é um serviço de banco de dados relacional baseado na última versão estável do Microsoft SQL Server Database Engine. É um serviço totalmente gerenciado, que pode gerenciar automaticamente o desempenho, confiabilidade e proteção de dados para garantir a função dos aplicativos sem interrupção.
+
+#Com o Azure SQL Database, você pode facilmente criar, escalar e estender aplicativos na nuvem com o Microsoft SQL Server. Ele fornece um modelo de banco de dados como serviço (DBaaS), que lida com muitas tarefas de manutenção e gerenciamento de banco de dados para você, para que você possa se concentrar no desenvolvimento de sua aplicação.
+
+#Pré-requisitos
+#Uma conta Azure for Students. Isso fornece $100 em crédito Azure.
+#Acesso ao Azure Cloud Shell, uma experiência de shell interativa baseada em navegador que a Microsoft oferece.
+#Laboratório
+#1. Autenticação e Configuração do Azure Cloud Shell
+#Primeiramente, faça login no Azure Portal - portal.azure.com
+
+#Clique no ícone >_ no canto superior direito do portal Azure para abrir o Cloud Shell.
+
+#Selecione a opção Bash  (Neste guia, estaremos usando Bash).
+
+#No início do uso do Cloud Shell, será necessário autenticar a sessão. Para isso, digite:
+az login
+
+#Siga as instruções na tela para autenticação.
+
+#2. Criação do Grupo de Recursos
+#Execute o seguinte comando para criar um grupo de recursos na localização eastus.
+
+az group create --name aulafinalresourcegroup --location eastus
+
+#3. Criação da Instância SQL
+Agora, vamos criar uma instância de um servidor SQL.
+
+az sql server create --name aulafinalserver --resource-group aulafinalresourcegroup --location eastus --admin-user aulafinaluser --admin-password Aulafinalpassword1
+#4. Criação do Banco de Dados
+#Vamos criar um banco de dados chamado aulafinaldatabase.
+
+az sql db create --resource-group aulafinalresourcegroup --server aulafinalserver --name aulafinaldatabase --service-objective S0
+
+#5. Configuração do Firewall
+#Para acessar o banco de dados, precisamos configurar as regras do firewall.
+
+az sql server firewall-rule create --resource-group aulafinalresourcegroup --server aulafinalserver --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+
+#6. Interagindo com o Banco de Dados
+pip install mssql-cli
+
+#7 . logue no banco:
+mssql-cli -S aulafinalserver.database.windows.net -d aulafinaldatabase -U aulafinaluser -P Aulafinalpassword1
+
+#8: 
+#Agora estamos conectados ao banco de dados. Vamos criar uma tabela simples. Por exemplo, uma tabela chamada "Estudantes" com três campos: Id, Nome, e Curso.
+CREATE TABLE Estudantes
+(
+    Id INT PRIMARY KEY,
+    Nome NVARCHAR(50),
+    Curso NVARCHAR(50)
+);
+
+#Agora, vamos inserir alguns registros na tabela.
+#copie o conteudo e cole no terminal
+
+INSERT INTO Estudantes VALUES (1, 'Maria', 'Ciência da Computação');
+INSERT INTO Estudantes VALUES (2, 'João', 'Engenharia de Software');
+INSERT INTO Estudantes VALUES (3, 'Ana', 'Engenharia de Dados');
+INSERT INTO Estudantes VALUES (4, 'Pedro', 'Inteligência Artificial');
+INSERT INTO Estudantes VALUES (5, 'Carla', 'Big Data');
+INSERT INTO Estudantes VALUES (6, 'Paulo', 'Cloud Computing');
+
+
+#Podemos verificar se os registros foram inseridos corretamente com um simples SELECT.
+
+SELECT * FROM Estudantes;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+#baixe o arquivo app.js
+#e o arquivo package.json
+
+wget https://urlPath
+wget https://urlPath
+
+#instale as dependências com o comando:
+
+npm install
+#Compacte a aplicação em um arquivo zip. O Azure App Service requer que a aplicação seja carregada como um arquivo zip. Execute o seguinte comando para criar um arquivo zip com todos os arquivos no diretório atual (isso incluirá app.js, package.json e a pasta node_modules):
+
+zip -r app.zip .
+
+#Crie o App Service. Agora você pode criar o App Service, que será o local onde a sua aplicação será hospedada. Execute os seguintes comandos para criar o App Service:
+
+az appservice plan create --name aulafinalserviceplan --resource-group aulafinalresourcegroup --sku B1 --is-linux
+az webapp create --resource-group aulafinalresourcegroup --plan aulafinalserviceplan --name aulafinalapp --runtime "NODE|14-lts"
+#Configure o arquivo de inicialização do App Service. O App Service precisa saber qual arquivo usar para iniciar a aplicação. Neste caso, será o arquivo app.js. Execute o seguinte comando para configurar o arquivo de inicialização:
+
+az webapp config set --resource-group aulafinalresourcegroup --name aulafinalapp --startup-file "
+
+
+
+#Finalmente, lembre-se de excluir a instância do servidor SQL e o appservice quando terminar suas operações para evitar custos desnecessários.
+
+az sql server delete --name aulafinalserver --resource-group aulafinalresourcegroup --yes
+az webapp delete --name aulafinalapp --resource-group aulafinalresourcegroup
+
