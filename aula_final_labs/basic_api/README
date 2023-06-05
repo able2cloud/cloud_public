@@ -73,8 +73,8 @@ SELECT * FROM Estudantes;
 #baixe o arquivo app.js
 #e o arquivo package.json
 
-wget https://urlPath
-wget https://urlPath
+wget https://raw.githubusercontent.com/able2cloud/cloud_public/main/aula_final_labs/basic_api/app.js 
+wget https://raw.githubusercontent.com/able2cloud/cloud_public/main/aula_final_labs/basic_api/package.json 
 
 #instale as dependências com o comando:
 
@@ -83,6 +83,7 @@ npm install
 
 zip -r app.zip .
 
+#O Azure App Service é um serviço de computação em nuvem da Microsoft Azure que permite aos desenvolvedores hospedar, criar e gerenciar aplicativos e serviços web.
 #Crie o App Service. Agora você pode criar o App Service, que será o local onde a sua aplicação será hospedada. Execute os seguintes comandos para criar o App Service:
 ##
 #Atenção em virtude da gestao do dns, pois o appservice usa o nome da aplicação para o SUBDOMINIO: na instrução:
