@@ -84,9 +84,13 @@ npm install
 zip -r app.zip .
 
 #Crie o App Service. Agora você pode criar o App Service, que será o local onde a sua aplicação será hospedada. Execute os seguintes comandos para criar o App Service:
+##
+#Atenção em virtude da gestao do dns, pois o appservice usa o nome da aplicação para o SUBDOMINIO: na instrução:
+#--name professoraulafinalapp    troque de professoraulafinalapp  para seu nome: exemplo: mariaaulafinalapp
+
 
 az appservice plan create --name aulafinalserviceplan --resource-group aulafinalresourcegroup --sku B1 --is-linux
-az webapp create --resource-group aulafinalresourcegroup --plan aulafinalserviceplan --name aulafinalapp --runtime "NODE|14-lts"
+az webapp create --resource-group aulafinalresourcegroup --plan aulafinalserviceplan --name professoraulafinalapp --runtime "NODE|14-lts"
 #Configure o arquivo de inicialização do App Service. O App Service precisa saber qual arquivo usar para iniciar a aplicação. Neste caso, será o arquivo app.js. Execute o seguinte comando para configurar o arquivo de inicialização:
 
 az webapp config set --resource-group aulafinalresourcegroup --name aulafinalapp --startup-file "
