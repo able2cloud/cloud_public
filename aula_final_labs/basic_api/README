@@ -101,7 +101,7 @@ az webapp create --resource-group aulafinalresourcegroup --plan aulafinalservice
 
 az webapp config set --resource-group aulafinalresourcegroup --name professoraulafinalapp --startup-file "
 
-URL: exemplo:
+#URL: exemplo:
 http://professoraulafinalapp.azurewebsites.net/api/estudantes.
 
 #Finalmente, lembre-se de excluir a instância do servidor SQL e o appservice quando terminar suas operações para evitar custos desnecessários.
