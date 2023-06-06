@@ -70,6 +70,9 @@ INSERT INTO Estudantes VALUES (6, 'Paulo', 'Cloud Computing');
 SELECT * FROM Estudantes;
 
 --------------------------------------------------------------------------------------------------------------------------------------
+# Agora que configuramos o banco vamos configurar uma aplicação no appservice
+
+
 #baixe o arquivo app.js
 #e o arquivo package.json
 
@@ -79,6 +82,7 @@ wget https://raw.githubusercontent.com/able2cloud/cloud_public/main/aula_final_l
 #instale as dependências com o comando:
 
 npm install
+
 #Compacte a aplicação em um arquivo zip. O Azure App Service requer que a aplicação seja carregada como um arquivo zip. Execute o seguinte comando para criar um arquivo zip com todos os arquivos no diretório atual (isso incluirá app.js, package.json e a pasta node_modules):
 
 zip -r app.zip .
@@ -92,14 +96,15 @@ zip -r app.zip .
 
 az appservice plan create --name aulafinalserviceplan --resource-group aulafinalresourcegroup --sku B1 --is-linux
 az webapp create --resource-group aulafinalresourcegroup --plan aulafinalserviceplan --name professorprofessoraulafinalapp --runtime "NODE|14-lts"
+
 #Configure o arquivo de inicialização do App Service. O App Service precisa saber qual arquivo usar para iniciar a aplicação. Neste caso, será o arquivo app.js. Execute o seguinte comando para configurar o arquivo de inicialização:
 
 az webapp config set --resource-group aulafinalresourcegroup --name professoraulafinalapp --startup-file "
 
-
+URL: exemplo:
+http://professoraulafinalapp.azurewebsites.net/api/estudantes.
 
 #Finalmente, lembre-se de excluir a instância do servidor SQL e o appservice quando terminar suas operações para evitar custos desnecessários.
 
 az sql server delete --name aulafinalserver --resource-group aulafinalresourcegroup --yes
 az webapp delete --name professoraulafinalapp --resource-group aulafinalresourcegroup
-
