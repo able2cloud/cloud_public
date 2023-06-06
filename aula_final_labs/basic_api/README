@@ -108,3 +108,4 @@ http://professoraulafinalapp.azurewebsites.net/api/estudantes.
 
 az sql server delete --name aulafinalserver --resource-group aulafinalresourcegroup --yes
 az webapp delete --name professoraulafinalapp --resource-group aulafinalresourcegroup
+az group delete --name aulafinalresourcegroup --no-wait
