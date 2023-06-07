@@ -4,9 +4,9 @@
 #Para evitar conflitos durante a realização deste laboratório, cada aluno deverá usar um identificador único para os nomes dos recursos criados. Uma sugestão seria usar suas iniciais seguidas do ano de nascimento. Por exemplo, se o aluno se chama "João Paulo" e nasceu em 1990, o identificador único seria "jp1990". Então, onde você ver "[identificador]",
 #substitua por seu identificador único. Por exemplo, o grupo de recursos para o aluno "João Paulo" ficaria "aulafinalresourcegroupjp1990"
 
-#BAIXE O README E EDITE  
+#BAIXE O README E EDITE seu tutorial para usar suas credenciais
 
-wget url/README
+wget https://raw.githubusercontent.com/able2cloud/cloud_public/main/aula_final_labs/basic_api/README
 
 # troque td1989 para suas iniciais e sua data de nascimento exemplo do comando joao paulo que nasceu em 1990
 sed -i 's/td1989/jp1990/g' README
