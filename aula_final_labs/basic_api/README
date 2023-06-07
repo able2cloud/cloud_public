@@ -37,7 +37,7 @@ az sql db create --resource-group aulafinalresourcegroup --server aulafinalserve
 #5. Configuração do Firewall
 #Para acessar o banco de dados, precisamos configurar as regras do firewall.
 
-az sql server firewall-rule create --resource-group aulafinalresourcegroup --server aulafinalserver --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group aulafinalresourcegroup --server aulafinalserver --name AllowAll --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 
 #6. Interagindo com o Banco de Dados
 pip install mssql-cli
@@ -102,7 +102,7 @@ az webapp create --resource-group aulafinalresourcegroup --plan aulafinalservice
 az webapp config set --resource-group aulafinalresourcegroup --name teacheraulafinalapp --startup-file app.js 
 
 #URL: exemplo:
-http://teacheraulafinalapp.azurewebsites.net/api/estudantes.
+http://teacheraulafinalapp.azurewebsites.net/estudantes.
 
 #Finalmente, lembre-se de excluir a instância do servidor SQL e o appservice quando terminar suas operações para evitar custos desnecessários.
 

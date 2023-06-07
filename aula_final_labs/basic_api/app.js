@@ -24,6 +24,6 @@ app.get('/estudantes', function(req, res) {
 });
 
 app.listen(port, () => {
-    console.log('App running on http://localhost:' + port);
+    console.log('App running on http://teacheraulafinalapp.azurewebsites.net/estudantes' + port);
 });
 
