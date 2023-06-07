@@ -112,7 +112,7 @@ zip -r app.zip app.js package.json node_modules/
 
 az appservice plan create --name aulafinalserviceplantd1989 --resource-group aulafinalresourcegrouptd1989 --sku B1 --is-linux
 
-az webapp create --resource-group aulafinalresourcegrouptd1989 --plan aulafinalserviceplan --name teacheraulafinalapptd1989 --runtime "NODE|14-lts"
+az webapp create --resource-group aulafinalresourcegrouptd1989 --plan aulafinalserviceplantd1989 --name teacheraulafinalapptd1989 --runtime "NODE|14-lts"
 
 #Configure o arquivo de inicialização do App Service. O App Service precisa saber qual arquivo usar para iniciar a aplicação. Neste caso, será o arquivo app.js. Execute o seguinte comando para configurar o arquivo de inicialização:
 
