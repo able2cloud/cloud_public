@@ -4,10 +4,10 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 const config = {
-    user: 'aulafinalusertd1989',
+    user: 'aulafinaluser',
     password: 'Aulafinalpassword1',
-    server: 'aulafinalservertd1989.database.windows.net', 
-    database: 'aulafinaldatabasetd1989',
+    server: 'aulafinalserver.database.windows.net', 
+    database: 'aulafinaldatabase',
     options: {
         encrypt: true
     }
@@ -24,6 +24,6 @@ app.get('/estudantes', function(req, res) {
 });
 
 app.listen(port, () => {
-    console.log('App running on port' + port);
+    console.log('App running on http://teacheraulafinalapp.azurewebsites.net/estudantes' + port);
 });
 
