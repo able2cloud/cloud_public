@@ -95,14 +95,24 @@ zip -r app.zip app.js package.json node_modules/
 
 
 az appservice plan create --name aulafinalserviceplan --resource-group aulafinalresourcegroup --sku B1 --is-linux
+
 az webapp create --resource-group aulafinalresourcegroup --plan aulafinalserviceplan --name teacheraulafinalapp --runtime "NODE|14-lts"
 
 #Configure o arquivo de inicialização do App Service. O App Service precisa saber qual arquivo usar para iniciar a aplicação. Neste caso, será o arquivo app.js. Execute o seguinte comando para configurar o arquivo de inicialização:
 
 az webapp config set --resource-group aulafinalresourcegroup --name teacheraulafinalapp --startup-file app.js 
 
+az webapp deployment source config-zip --resource-group aulafinalresourcegroup --name teacheraulafinalapp --src app.zip
 #URL: exemplo:
-http://teacheraulafinalapp.azurewebsites.net/estudantes.
+http://teacheraulafinalapp.azurewebsites.net/estudantes
+
+
+
+
+
+
+
+# ATENCAO só no fim da aula exclua os recursos
 
 #Finalmente, lembre-se de excluir a instância do servidor SQL e o appservice quando terminar suas operações para evitar custos desnecessários.
 
